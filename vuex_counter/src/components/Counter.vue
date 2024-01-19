@@ -12,20 +12,18 @@
 </template>
 
 <script>
-// snippet vdata
     export default {
-        data() {
-            return {
-                currentValue: 0
-            }
-        },
-// snippet vmethod
         methods: {
             increment() {
-                this.currentValue = this.currentValue +1;
+                this.$store.commit('INCREMENT_COUNTER');
             },
             decrement() {
-                this.currentValue = this.currentValue -1;
+                //this.currentValue = this.currentValue -1;
+            }
+        },
+        computed: {
+            currentValue() {
+                return this.$store.state.currentValue;
             }
         },
     }
